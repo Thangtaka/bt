@@ -1,25 +1,18 @@
 public class Vehicle {
-    private int maXe,dungTich;
+    private int dungTich;
     private double triGia;
-    private String chuXe,moTa;
+    private String chuXe,loaixe;
 
-    public Vehicle(int maXe, int dungTich, double triGia, String chuXe, String moTa) {
-        this.maXe = maXe;
+    public Vehicle(int dungTich, double triGia, String chuXe, String loaixe) {
         this.dungTich = dungTich;
         this.triGia = triGia;
         this.chuXe = chuXe;
-        this.moTa = moTa;
+        this.loaixe = loaixe;
     }
     public Vehicle(){
 
     }
-    public int getMaXe() {
-        return maXe;
-    }
-
-    public void setMaXe(int maXe) {
-        this.maXe = maXe;
-    }
+  
 
     public int getDungTich() {
         return dungTich;
@@ -45,12 +38,12 @@ public class Vehicle {
         this.chuXe = chuXe;
     }
 
-    public String getMoTa() {
-        return moTa;
+    public String getloaixe() {
+        return loaixe;
     }
 
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
+    public void setloaixe(String loaixe) {
+        this.loaixe = loaixe;
     }
 
     public double tinhThue(){
@@ -67,7 +60,7 @@ public class Vehicle {
 }
 
     void inThue(){
-        System.out.printf("%5d %-20s %5d %10.2f %10s %8.5f n ",maXe,chuXe,dungTich,triGia,moTa,tinhThue());
+        System.out.printf(" %-20s %5d %10.2f %10s %8.5f n "chuXe,dungTich,triGia,hangxe,tinhThue());
     }
 }
 import java.util.Scanner;
@@ -75,23 +68,19 @@ public class Test {
     static Scanner sc = new Scanner(System.in);
     //tạo phương thức nhập thông tin cho xe
       static void nhapXe(Vehicle xe){
-            System.out.print("Nhập mã xe: ");
-            xe.setMaXe(sc.nextInt());sc.nextLine();
             System.out.print("Nhập tên chủ xe: ");
             xe.setChuXe(sc.nextLine());
             System.out.print("Nhập dung tích xe: ");
             xe.setDungTich(sc.nextInt());
             System.out.print("Nhập trị giá xe: ");
             xe.setTriGia(sc.nextDouble());;sc.nextLine();
-            System.out.print("Mô tả: ");
-            xe.setMoTa(sc.nextLine());
+            System.out.print("Hãng xe : ");
+            xe.sethangxe(sc.nextLine());
         }
-        //tạo phương thức main để chạy các phương thức khác ở class Vehicle
     public static void main(String[] args) {
         Vehicle v[]= null;//mang chua xe
         int a,n=0;
         boolean flag = true;
-        //sử dụng switch case để tạo menu cho chương trình
         do{
             System.out.println("Bạn chọn làm gì!!!");
             System.out.println("1.Tạo các đối tượng xe và nhập thông tin n"+
@@ -111,7 +100,7 @@ public class Test {
                     }
                     break;
                 case 2:
-                    System.out.printf("%5s %5s %5s %10s %10s %8s n","Mã xe","Chủ xe","Dung tích","Trị giá","mô tả","Thuế");
+                    System.out.printf(" %5s %5s %10s %10s %8s n","Chủ xe","Dung tích","Trị giá","hãng xe","Thuế");
                     for (int i = 0; i < n; i++) {
                         v[i].inThue();
                     }
